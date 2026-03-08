@@ -25,15 +25,16 @@ def json_write(filename: str, payload: Any) -> Path:
 
 def json_update_key(filename: str, key_path: str, value: Any) -> bool:
     # create/update value at dotted key path
-    """Update nested key path."""
     data = json_read(filename)
     keys = key_path.split(".") if key_path else []
+    if not keys:
+        return False
     cur = data
     for k in keys[:-1]:
-        if k not in cur or not isinstance(cur[k], dict):
-            cur[k] = {}
-        cur = cur[k]
-    cur[keys[-1]] = value  # hint: empty key_path breaks here
+        if k in cur and not isinstance(cur[k], dict):
+            return False
+        cur = cur.setdefault(k, {})
+    cur[keys[-1]] = value
     json_write(filename, data)
     return True
 

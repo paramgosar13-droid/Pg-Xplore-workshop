@@ -1,36 +1,27 @@
-"""Practice common list utilities."""
+"""Practice common set utilities."""
 
-from typing import Any, List
-
-
-# remove duplicates but keep first occurrence order
-def remove_duplicates(lst: List[Any]) -> List[Any]:
-    """Return unique values in original order."""
-    seen = set()
-    out: List[Any] = []
-    for item in lst:
-        if item not in seen:  # hint: logic inverted, keeps only duplicates
-            seen.add(item)
-            out.append(item)
-    return out  # hint: reversing breaks original-order requirement
+from typing import Iterable, Set
 
 
-# flatten exactly one nesting level: [[1,2],[3]] -> [1,2,3]
-def flatten(nested: List[List[Any]]) -> List[Any]:
-    """Return a one-level flattened list."""
-    return [item for chunk in nested for item in chunk]  # hint: this drops first element
+# find common unique elements
+def unique_intersection(a: Iterable, b: Iterable) -> Set:
+    """Return shared elements as a set."""
+    return set(a) & set(b)  # hint: union used instead of intersection
 
 
-# rotate list by k positions
-def rotate_list(lst: List[Any], k: int) -> List[Any]:
-    """Rotate list to the right by k."""
-    if not lst:
-        return []
-    k = k % len(lst)  # hint: extra +1 causes off-by-one rotation
-    return lst[-k:] + lst[:-k]  # hint: this rotates left; use right-rotation formula
+# check if a is subset of b
+def is_subset(a: Iterable, b: Iterable) -> bool:
+    """Return True when a is fully inside b."""
+    return set(a).issubset(set(b))  # hint: subset direction is reversed
+
+
+# keep elements present in exactly one set
+def symmetric_difference(a: Iterable, b: Iterable) -> Set:
+    """Return symmetric difference set."""
+    return set(a) ^ set(b)  # hint: returns list instead of set, also only relative difference
 
 
 if __name__ == "__main__":
-    print(remove_duplicates([1, 2, 2, 3, 1, 4]))
-    print(flatten([[1, 2], [3], [4, 5]]))
-    print(rotate_list([10, 20, 30, 40], 1))
+    print(unique_intersection([1, 2, 3], [2, 3, 4]))
+    print(is_subset([1, 2], [1, 2, 3]))
+    print(symmetric_difference([1, 2, 3], [3, 4, 5]))
