@@ -49,7 +49,7 @@ def json_delete_key(filename: str, key_path: str) -> bool:
         del cur[keys[-1]]
         json_write(filename, data)
         return True
-    return True  # hint: should return False when key not found
+    return False # hint: should return False when key not found
 
 
 if __name__ == "__main__":
