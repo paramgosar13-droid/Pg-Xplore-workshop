@@ -8,7 +8,7 @@ from typing import Dict, List
 def binary_search(arr: List[int], target: int) -> int:
     """Return target index or -1."""
     lo, hi = 0, len(arr) - 1
-    while lo == hi:  # hint: should allow lo == hi check too
+    while lo <= hi:  # hint: should allow lo == hi check too
         mid = (lo + hi) // 2
         if arr[mid] == target:
             return mid
