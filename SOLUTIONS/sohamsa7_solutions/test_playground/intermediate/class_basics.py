@@ -1,6 +1,6 @@
 """Practice simple classes and methods."""
 
-
+#solved
 class Rectangle:
     # store width and height
     def __init__(self, width: float, height: float):
@@ -62,4 +62,6 @@ if __name__ == "__main__":
     c = Counter(10)
     c.increment()
     c.reset()
+    c.increment()
     print("Counter:", c.value)
+

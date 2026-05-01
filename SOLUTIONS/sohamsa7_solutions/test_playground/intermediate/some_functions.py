@@ -1,6 +1,6 @@
 """Practice debugging small math helpers."""
 
-
+#solved
 def fibonacci(n: int) -> int:
     """Return n-th Fibonacci value."""
     if n <= 0:
