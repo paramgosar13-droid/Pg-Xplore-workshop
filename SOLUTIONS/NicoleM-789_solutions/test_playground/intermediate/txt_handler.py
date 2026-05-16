@@ -45,7 +45,7 @@ def overwrite_line(filename: str, line_no: int, new_line: str) -> bool:
    if not p.exists():
        raise FileNotFoundError(p)
    lines = p.read_text(encoding="utf-8").splitlines()
-   if line_no < 0 or line_no > len(lines):
+   if line_no < 0 or line_no >= len(lines):
        raise IndexError("line_no out of range")
    lines[line_no] = new_line
    p.write_text("\n".join(lines),+"\n", encoding="utf-8")
