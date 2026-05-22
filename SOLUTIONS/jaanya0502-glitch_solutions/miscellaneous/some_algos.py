@@ -86,7 +86,7 @@ def bfs(adj: Dict[int, List[int]], start: int) -> List[int]:
 def run_tests():
     """Run basic smoke tests."""
     print("binary_search:", binary_search([1, 3, 5, 7, 9], 7))
-    print("sliding_window_max:", sliding_window_max([1, 3, 2, 5, 8, 7], 3))
+    print("sliding_window_max:", sliding_window_max([1, 3, 2, 5, 8, 7], 3))J
     print("two_pointers_pair_sum:", two_pointers_pair_sum([1, 2, 4, 6, 8], 10))
     g = {1: [2, 3], 2: [4], 3: [5], 4: [], 5: []}
     print("dfs:", dfs(g, 1))
