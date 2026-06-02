@@ -48,6 +48,8 @@ venv\Scripts\Activate
 
 ```
 # Linux/Mac
+python3.12 -m venv venv
+source venv/bin/activate  
 ```
 Install dependencies:
 ```
