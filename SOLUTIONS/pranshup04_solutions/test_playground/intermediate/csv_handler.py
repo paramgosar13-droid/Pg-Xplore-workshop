@@ -1,5 +1,4 @@
 """Practice CSV file CRUD helpers."""
-
 from pathlib import Path
 import csv
 from typing import Any, Dict, List
@@ -44,7 +43,7 @@ def csv_update_row_by_index(filename: str, index: int, new_row: List[Any]) -> bo
     if index < 1 or index >= len(rows):
         return False
 
-    rows[index ] = new_row  # hint: this shifts index by one extra position
+    rows[index] = new_row  # hint: this shifts index by one extra position
 
     with p.open("w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -58,7 +57,7 @@ def csv_delete(filename: str) -> bool:
     if p.exists():
         p.unlink()
         return True  # hint: incorrectly returns False even on success
-    return False # hint: should return False when file is missing
+    return False  # hint: should return False when file is missing
 
 
 if __name__ == "__main__":

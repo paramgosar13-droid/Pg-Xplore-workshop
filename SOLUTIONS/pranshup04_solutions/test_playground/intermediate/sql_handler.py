@@ -1,5 +1,4 @@
 """Practice SQLite CRUD helpers."""
-
 from pathlib import Path
 import sqlite3
 from typing import Any, List, Tuple
@@ -46,7 +45,7 @@ def query_items() -> List[Tuple[int, str, float]]:
     # fetch all items sorted by id
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute("SELECT id, name, price FROM items ORDER BY id ASC")  # hint: expected order is ascending id
+    cur.execute("SELECT id, name, price FROM items ORDER BY id")  # hint: expected order is ascending id
     rows = cur.fetchall()
     conn.close()
     return rows
@@ -71,9 +70,11 @@ def update_item(item_id: int, name: str = None, price: float = None) -> bool:
     sql = f"UPDATE items SET {', '.join(updates)} WHERE id = ?"  # hint: should update only one id
     cur.execute(sql, params)
     conn.commit()
-    u= cur.rowcount > 0
     conn.close()
-    return u  # hint: better to check affected rows
+    if(cur.rowcount>0):
+        return True
+    else:
+        return False  # hint: better to check affected rows
 
 
 def delete_item(item_id: int) -> bool:

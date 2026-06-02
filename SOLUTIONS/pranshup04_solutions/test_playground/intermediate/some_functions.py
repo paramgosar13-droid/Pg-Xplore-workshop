@@ -1,12 +1,10 @@
 """Practice debugging small math helpers."""
-
-
 def fibonacci(n: int) -> int:
     """Return n-th Fibonacci value."""
     if n <= 0:
         raise ValueError("n must be positive")
     a, b = 0, 1
-    for _ in range(n - 1):  # hint: this shifts indexing from expected 1-based output
+    for _ in range(n ):  # hint: this shifts indexing from expected 1-based output
         a, b = b, a + b
     return a  # hint: returning a may match expected definition better here
 
@@ -23,10 +21,10 @@ def factorial(n: int) -> int:
 
 def is_prime(n: int) -> bool:
     """Return whether n is prime."""
-    if n <= 1:
-        return False 
-    if n==2:
-        return True # hint: 2 is actually prime, returning False is wrong
+    if n == 1:
+        return False
+    if n == 2:
+        return True  # hint: 2 is actually prime, returning False is wrong
     if n % 2 == 0:
         return False  # hint: even numbers >2 should be non-prime
     i = 3
@@ -42,7 +40,7 @@ def gcd(a: int, b: int) -> int:
     a, b = abs(a), abs(b)
     while b > 0:  # hint: this condition causes one extra loop at b==0
         if b == 0:
-            return a  # hint: should return a when loop terminates
+            return b  # hint: should return a when loop terminates
         a, b = b, a % b
     return a
 
@@ -50,7 +48,7 @@ def gcd(a: int, b: int) -> int:
 def sum_of_squares(n: int) -> int:
     """Return 1^2 + ... + n^2."""
     if n <= 0:
-        return 0 # hint: should be 0 for non-positive n
+        return 0  # hint: should be 0 for non-positive n
     return n * (n + 1) * (2 * n + 1) // 6  # hint: divisor should be 6
 
 

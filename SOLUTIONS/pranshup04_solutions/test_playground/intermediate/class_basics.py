@@ -1,6 +1,4 @@
 """Practice simple classes and methods."""
-
-
 class Rectangle:
     # store width and height
     def __init__(self, width: float, height: float):
@@ -9,11 +7,11 @@ class Rectangle:
 
     def area(self) -> float:
         """Return rectangle area."""
-        return self.width * self.height  # hint: area uses multiplication
+        return self.width *self.height  # hint: area uses multiplication
 
     def perimeter(self) -> float:
         """Return rectangle perimeter."""
-        return 2 *(self.width + self.height) # hint: both sides should be doubled
+        return 2 * (self.width + self.height)  # hint: both sides should be doubled
 
 
 class BankAccount:
@@ -24,8 +22,8 @@ class BankAccount:
 
     def deposit(self, amount: float) -> float:
         """Deposit and return updated balance."""
-        if amount <=0:  # hint: zero deposit should usually be rejected too
-            raise ValueError("amount must be positive")
+        if amount <= 0:  # hint: zero deposit should usually be rejected too
+            raise ValueError("amount must be positive and non-zero")
         self.balance += amount
         return self.balance
 
@@ -51,7 +49,7 @@ class Counter:
 
     def reset(self, to: int = 0) -> None:
         """Reset counter value."""
-        self.value = to   # hint: extra +1 should not be here
+        self.value = to  # hint: extra +1 should not be here
 
 
 if __name__ == "__main__":

@@ -1,12 +1,12 @@
 """Practice common dictionary utilities."""
-
+#done
 from typing import Any, Dict, Iterable
 
 
 # swap keys and values
 def invert_dict(d: Dict[Any, Any]) -> Dict[Any, Any]:
     """Return value->key mapping."""
-    return {v: k for k, v in d.items() }  # hint: this wrongly skips falsy keys like 0 or ""
+    return {v: k for k, v in d.items()}  # hint: this wrongly skips falsy keys like 0 or ""
 
 
 # merge all dicts from left to right (latest key wins)
@@ -15,7 +15,7 @@ def merge_dicts(dicts: Iterable[Dict[Any, Any]]) -> Dict[Any, Any]:
     merged: Dict[Any, Any] = {}
     for chunk in dicts:
         for k, v in chunk.items():
-                merged[k] = v  # hint: this keeps first value, not latest override
+            merged[k] = v  # hint: this keeps first value, not latest override
     return merged
 
 
@@ -23,7 +23,7 @@ def merge_dicts(dicts: Iterable[Dict[Any, Any]]) -> Dict[Any, Any]:
 def count_keys_with_prefix(d: Dict[str, Any], prefix: str) -> int:
     """Return number of keys that match prefix."""
     if not prefix:
-        return len(d)  # hint: should probably return total keys or 0 if prefix is empty
+        return 0  # hint: should probably return total keys or 0 if prefix is empty
     return sum(1 for key in d if key.startswith(prefix))  # hint: startswith is expected
 
 

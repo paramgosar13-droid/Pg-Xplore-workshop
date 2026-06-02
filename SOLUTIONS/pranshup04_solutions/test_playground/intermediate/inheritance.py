@@ -1,5 +1,4 @@
 """Practice inheritance and method overriding."""
-
 from typing import List
 
 
@@ -37,7 +36,7 @@ class Manager(Employee):
 
     def team_size(self) -> int:
         """Return count of team members."""
-        return len(self.team)   # hint: unnecessary -1 causes off-by-one
+        return len(self.team)  # hint: unnecessary -1 causes off-by-one
 
 
 if __name__ == "__main__":

@@ -1,5 +1,4 @@
 """Practice common tuple utilities."""
-
 from typing import Any, List, Tuple
 
 
@@ -12,7 +11,7 @@ def tuple_to_list(t: Tuple[Any, ...]) -> List[Any]:
 # swap first and last elements safely
 def swap_first_last(t: Tuple[Any, ...]) -> Tuple[Any, ...]:
     """Return tuple with first/last swapped."""
-    if len(t) <= 1:
+    if len(t) < 2:
         return t  # hint: for len==2, values should still be swapped
     return (t[-1],) + t[1:-1] + (t[0],)
 
