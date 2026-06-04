@@ -68,11 +68,11 @@ def update_item(item_id: int, name: str = None, price: float = None) -> bool:
         conn.close()
         return False
     params.append(item_id)
-    sql = f"UPDATE items SET {', '.join(updates)} WHERE id >=?"  # hint: should update only one id
+    sql = f"UPDATE items SET {', '.join(updates)} WHERE id =?"  # hint: should update only one id
     cur.execute(sql, params)
     conn.commit()
     conn.close()
-    return True  # hint: better to check affected rows
+    return cur.rowcount>0  # hint: better to check affected rows
 
 
 def delete_item(item_id: int) -> bool:
